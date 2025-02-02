@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+        }
+        td{
+            padding: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:1620px; margin: 0 auto;">
+        <h1 style="text-align: center;">Documention</h1>
+   
+    <table >
+        <tr>
+            <th>Action Name</th>
+            <th>URL Call</th>
+            <th>Request Method</th>
+            <th>action details</th>
+        </tr>
+        <tr>
+            <td>Create User</td>
+            <td>http://host:port/users</td>
+            <td>POST</td>
+            <td>Creating user or admin in the database</td>
+        </tr>
+        <tr>
+            <td>User login</td>
+            <td>http://host:port/users/login</td>
+            <td>POST</td>
+            <td>log in to a user or admin account after account created</td>
+        </tr>
+        <tr>
+            <td>Show all toys</td>
+            <td>http://host:port/toys?perPage=Number&&page=Number&&orderBy=String&&reverse=String</td>
+            <td>GET</td>
+            <td> 
+                perPage=default to 10 toys per page <br>
+                page = default to show first 10 toys(1) <br>
+                orderBy = default to sort by db entry order could change to be sorted by any other toy property <br>
+                reverse = default to no reverse(1) prompt yes to reverse (reverse=yes)
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Search toys</td>
+            <td>http://host:port/toys/search?s=String(name or info)</td>
+            <td>GET</td>
+            <td> 
+                s = can find toys by their toy name or the info about them dont use it for regular calls<br>
+                perPage=default to 10 toys per page <br>
+                page = default to show first 10 toys(1) <br>
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Search toys by their category</td>
+            <td>http://host:port/toys/category/some-category?perPage=Number&&page=Number </td>
+            <td>GET</td>
+            <td> 
+                pass a toy category you want to display after the category route<br>
+                perPage=default to 10 toys per page <br>
+                page = default to show first 10 toys(1) <br>
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Display toys by a price range</td>
+            <td>http://host:port/toys/prices?min=Number&&max=Number&&perPage=12&&page=2</td>
+            <td>GET</td>
+            <td> 
+                min = default to 10 <br>
+                max = default to 40 <br>
+                display toys that their price between the min and max
+                perPage=default to 10 toys per page <br>
+                page = default to show first 10 toys(1) <br>
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Display a toy by his id</td>
+            <td>http://host:port/toys/single/some-toy-id</td>
+            <td>GET</td>
+            <td> 
+             returns toy details based on the given id.
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Number of toys</td>
+            <td>http://host:port/toys/count</td>
+            <td>GET</td>
+            <td> 
+             returns the number of toys in the toys collection
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Create a toy</td>
+            <td>http://host:port/toys/</td>
+            <td>POST</td>
+            <td> 
+             require a logged account with a valid token <br>
+             create a toy if the body is valid based on the following model: <br>
+             name: String,<br>
+             info: String,<br>
+             category: String,<br>
+             img_url: String,<br>
+             price: Number,<br>
+             user_id: String
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Edit a toy</td>
+            <td>http://host:port/toys/some-toy-id</td>
+            <td>PUT</td>
+            <td> 
+             require a logged account with a valid token or an admin token <br>
+             edit a toy if the body is valid based on the following model: <br>
+             name: String,<br>
+             info: String,<br>
+             category: String,<br>
+             img_url: String,<br>
+             price: Number,<br>
+             user_id: String <br>
+             sending the same body will result no changes
+                
+                 
+            </td>
+        </tr>
+        <tr>
+            <td>Delete a toy</td>
+            <td>http://host:port/toys/some-toy-id</td>
+            <td>DELETE</td>
+            <td> 
+             require a logged account with a valid token or an admin token <br>
+             deleting a toy based on the given id.
+                
+                 
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
